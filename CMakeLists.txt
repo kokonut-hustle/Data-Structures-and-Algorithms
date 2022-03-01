@@ -1,0 +1,20 @@
+PROJECT (compositor)
+CMAKE_MINIMUM_REQUIRED (VERSION 2.8.12)
+INCLUDE (CMakeMacro.cmake)
+
+SET (CMAKE_CXX_FLAGS "-std=c++11 -Wno-deprecated")
+
+INCLUDE_DIRECTORIES (.)
+
+# Search
+# AUX_SOURCE_DIRECTORY (Search SRC_SEARCH)
+# ADD_LIBRARY (search SHARED ${SRC_SEARCH})
+# INSTALL (TARGETS search DESTINATION lib)
+
+# Quick Select
+AUX_SOURCE_DIRECTORY (Quick\ Select SRC_QUICK_SELECT)
+ADD_LIBRARY (QuickSelect SHARED ${SRC_QUICK_SELECT})
+INSTALL (TARGETS QuickSelect DESTINATION lib)
+
+ADD_EXECUTABLE (test_run test_run.cpp)
+TARGET_LINK_LIBRARIES (test_run QuickSelect)
