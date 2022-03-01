@@ -9,6 +9,6 @@
 
 ## HOW TO RUN
 - `mkdir build && cd build`
-- `cmake ..`
+- `cmake -DCMAKE_INSTALL_PREFIX=./ ..`
 - `make install`
 - `./test_run`
