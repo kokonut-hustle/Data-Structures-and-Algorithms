@@ -5,7 +5,7 @@
 
 namespace dsa
 {
-int kthLargest(std::vector< int > &arr, size_t lo, size_t hi, size_t k);
+int kthLargest(std::vector< int > &arr, size_t k);
 int kthLargest_test();
 } // namespace dsa
 

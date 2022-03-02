@@ -14,9 +14,10 @@ namespace dsa
 //   6th 5th 4th 3th 2nd 1st
 // O(n) time on avarage, O(1) space
 
-int kthLargest(vector< int > &arr, size_t lo, size_t hi, size_t k)
+int kthLargest(vector< int > &arr, size_t k)
 {
 	if (k <= 0 || k > arr.size()) return -1;
+	size_t lo = 0, hi = arr.size()-1;
 	while (lo <= hi)
 	{
 		size_t mid = lo + (hi - lo) / 2;
@@ -48,7 +49,7 @@ int kthLargest_test()
 	for (size_t i = 1; i <= arr.size(); ++i)
 	{
 		vector< int > arr_temp = arr;
-		cout << i << " largest element is " << kthLargest(arr_temp, 0, arr.size() - 1, i) << endl;
+		cout << i << " largest element is " << kthLargest(arr_temp, i) << endl;
 	}
 	cout << "sorted array: ";
 	sort(arr.begin(), arr.end());
