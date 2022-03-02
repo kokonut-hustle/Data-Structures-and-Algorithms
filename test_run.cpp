@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	// dsa::BinarySearch_test();
+	dsa::BinarySearch_test();
 	// dsa::kthLargest_test();
 	return 0;
 }

@@ -12,31 +12,34 @@ namespace dsa
 // Consider nth_element in stl
 // { 1   2   3   4   5   6 }
 //   6th 5th 4th 3th 2nd 1st
-// O(n) time, O(log(n)) space on avarage
-// can optimize space by remove recursive (if asked)
+// O(n) time on avarage, O(1) space
 
 int kthLargest(vector< int > &arr, size_t lo, size_t hi, size_t k)
 {
-	if (lo > hi) return -1;
-	size_t mid = lo + (hi - lo) / 2;
-
-	swap(arr[mid], arr[hi]);
-	size_t l = lo, r = hi;
-	while (l < r)
+	if (k <= 0 || k > arr.size()) return -1;
+	while (lo <= hi)
 	{
-		while (l < r && arr[l] < arr[hi])
-			l++;
-		while (l < r && arr[r] >= arr[hi])
-			r--;
-		swap(arr[l], arr[r]);
+		size_t mid = lo + (hi - lo) / 2;
+
+		swap(arr[mid], arr[hi]);
+		size_t l = lo, r = hi;
+		while (l < r)
+		{
+			while (l < r && arr[l] < arr[hi])
+				l++;
+			while (l < r && arr[r] >= arr[hi])
+				r--;
+			swap(arr[l], arr[r]);
+		}
+		swap(arr[l], arr[hi]);
+		if (hi - l + 1 == k)
+			return arr[l];
+		else if (hi - l + 1 > k)
+			lo = l + 1;
+		else
+			hi = l, k -= (hi - l);
 	}
-	swap(arr[l], arr[hi]);
-	if (hi - l + 1 == k)
-		return arr[l];
-	else if (hi - l + 1 > k)
-		return kthLargest(arr, l + 1, hi, k);
-	else
-		return kthLargest(arr, lo, l, k - (hi - l));
+	return -1;
 }
 
 int kthLargest_test()
