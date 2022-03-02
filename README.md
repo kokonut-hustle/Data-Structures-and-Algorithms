@@ -1,5 +1,5 @@
 ## TO DO
-    - split declaration and defination
+    - add more DSA
 
 ## REQUIREMENTS
     - make
