@@ -7,9 +7,16 @@ SET (CMAKE_CXX_FLAGS "-std=c++11 -Wno-deprecated")
 INCLUDE_DIRECTORIES (.)
 
 # Search
-AUX_SOURCE_DIRECTORY (Search/Binary\ Search SRC_SEARCH)
-ADD_LIBRARY (Search SHARED ${SRC_SEARCH})
-INSTALL (TARGETS Search DESTINATION lib)
+## Binary Search
+AUX_SOURCE_DIRECTORY (Search/Binary\ Search SRC_BINARY_SEARCH)
+ADD_LIBRARY (BinarySearch SHARED ${SRC_BINARY_SEARCH})
+INSTALL (TARGETS BinarySearch DESTINATION lib)
+
+# Sort
+## Bubble Sort
+AUX_SOURCE_DIRECTORY (Sort/Bubble\ Sort SRC_BUBBLE_SORT)
+ADD_LIBRARY (BubbleSort SHARED ${SRC_BUBBLE_SORT})
+INSTALL (TARGETS BubbleSort DESTINATION lib)
 
 # Quick Select
 AUX_SOURCE_DIRECTORY (Quick\ Select SRC_QUICK_SELECT)
@@ -17,4 +24,4 @@ ADD_LIBRARY (QuickSelect SHARED ${SRC_QUICK_SELECT})
 INSTALL (TARGETS QuickSelect DESTINATION lib)
 
 ADD_EXECUTABLE (test_run test_run.cpp)
-TARGET_LINK_LIBRARIES (test_run Search QuickSelect)
+TARGET_LINK_LIBRARIES (test_run BinarySearch BubbleSort QuickSelect)

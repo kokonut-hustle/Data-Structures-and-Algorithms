@@ -11,10 +11,10 @@ static const double EPS = 1e-6;
 class BinarySearch
 {
 public:
-	static double binarySearch(double lo, double hi, double target, std::function< double(double) > func);
-	static std::vector< int >::iterator lowerBound(std::vector< int > &arr, int target);
+	static double binary_search(double lo, double hi, double target, std::function< double(double) > func);
+	static std::vector< int >::iterator lower_bound(std::vector< int > &arr, int target);
 };
-int BinarySearch_test();
+int binary_search_test();
 } // namespace dsa
 
 #endif /* __BINARY_SEARCH_HPP__ */

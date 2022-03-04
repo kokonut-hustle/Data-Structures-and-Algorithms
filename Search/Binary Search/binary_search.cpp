@@ -15,7 +15,7 @@ namespace dsa
 // binary search with function
 // function must be non-decrease
 // maybe non-increase, but need to config
-double BinarySearch::binarySearch(double lo, double hi, double target, function< double(double) > func)
+double BinarySearch::binary_search(double lo, double hi, double target, function< double(double) > func)
 {
 	if (hi <= lo) std::invalid_argument("hi should be greater than lo");
 	double mid;
@@ -41,7 +41,7 @@ double BinarySearch::binarySearch(double lo, double hi, double target, function<
 // should not implement by recursive (space optimize)
 // return first element which equal to target
 // if not found -> return upper bound
-vector< int >::iterator BinarySearch::lowerBound(vector< int > &arr, int target)
+vector< int >::iterator BinarySearch::lower_bound(vector< int > &arr, int target)
 {
 	if (arr.back() < target) return arr.end();
 	size_t n = arr.size();
@@ -59,8 +59,9 @@ vector< int >::iterator BinarySearch::lowerBound(vector< int > &arr, int target)
 	return arr.begin() + l;
 }
 
-int BinarySearch_test()
+int binary_search_test()
 {
+	cout << endl << ">> Binary search test" << endl;
 	{
 		// Ex 1: find sqrt(875)
 		cout << "Test for binary search to find sqrt(875)" << endl;
@@ -69,7 +70,7 @@ int BinarySearch_test()
 		double target = 875.0;
 
 		auto function = [](double x) -> double { return x * x; };
-		double sqrtVal = BinarySearch::binarySearch(lo, hi, target, function);
+		double sqrtVal = BinarySearch::binary_search(lo, hi, target, function);
 		std::cout << "sqrt(" << target << ") = " << sqrtVal << ", x^2 = " << (sqrtVal * sqrtVal) << std::endl;
 	}
 
@@ -83,7 +84,7 @@ int BinarySearch_test()
 			cout << t << " ";
 		cout << endl << "target value: " << target << endl;
 
-		auto result = BinarySearch::lowerBound(arr, target);
+		auto result = BinarySearch::lower_bound(arr, target);
 		(result == arr.end()) ? cout << "All of elements are less than target" << endl
 				      : cout << "Lower bound is found at index: " << result - arr.begin() << endl;
 	}

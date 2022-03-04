@@ -5,8 +5,8 @@
 
 namespace dsa
 {
-int kthLargest(std::vector< int > &arr, size_t k);
-int kthLargest_test();
+int kth_largest(std::vector< int > &arr, size_t k);
+int kth_largest_test();
 } // namespace dsa
 
 #endif /* __QUICK_SELECT_HPP__ */
