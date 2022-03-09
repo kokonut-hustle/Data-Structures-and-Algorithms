@@ -1,5 +1,7 @@
 ## TO DO
     - add more DSA
+    - add test for skip list
+    - add CMake build for skip list
 
 ## REQUIREMENTS
     - make
